@@ -98,8 +98,6 @@ namespace zia::api
     struct HttpDuplex
     {
         NetInfo info;
-        Net::Raw raw_req;
-        Net::Raw raw_resp;
         HttpRequest req;
         HttpResponse resp;
     };
