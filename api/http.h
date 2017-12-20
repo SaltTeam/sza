@@ -13,7 +13,11 @@ namespace zia::api
     {
         enum class Version
         {
-            unknown, http_0_9, http_1_0, http_1_1, http_2_0
+            unknown = 0,
+            http_0_9 = 1,
+            http_1_0 = 2,
+            http_1_1 = 3,
+            http_2_0 = 4
         };
 
         Version version;
