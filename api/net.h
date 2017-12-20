@@ -47,7 +47,7 @@ namespace zia::api
         /**
         * Type used to receive and send packets.
         */
-        using Raw = std::vector<std::byte>;
+        using Raw = std::string;
 
         /**
         * Type of callback called on request.
