@@ -27,7 +27,15 @@ namespace zia::api
     {
         enum class Method
         {
-            unknown, options, get, head, post, put, delete_, trace, connect
+            unknown = 0,
+            options = 1,
+            get = 2,
+            head = 3,
+            post = 4,
+            put = 5,
+            delete_ = 6,
+            trace = 7,
+            connect = 8
         };
 
         Method method;
