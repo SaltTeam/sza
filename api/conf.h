@@ -16,7 +16,7 @@ namespace zia::api
     */
     struct ConfValue
     {
-        using Parameter = std::variant<ConfObject, ConfArray, std::string, long long, double, bool>;
+        using Parameter = std::variant<std::monostate, ConfObject, ConfArray, std::string, long long, double, bool>;
 
         Parameter value;
 
