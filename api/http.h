@@ -21,9 +21,10 @@ namespace zia::api
         };
 
         Version version;
-        std::map <std::string, std::string> headers;
+        std::map<std::string, std::string> headers;
         Net::Raw body;
 
+        HttpMessage() : version{Version::unknown}, headers{}, body{} {}
         virtual ~HttpMessage() = default;
     };
 
@@ -44,6 +45,9 @@ namespace zia::api
 
         Method method;
         std::string uri;
+
+        HttpRequest() : HttpMessage(), method{Method::unknown}, uri{} {}
+        ~HttpRequest() override = default;
     };
 
     struct HttpResponse : public HttpMessage
@@ -94,6 +98,9 @@ namespace zia::api
         };
 
         Status status;
+
+        HttpResponse() : HttpMessage(), status{Status::unknown} {}
+        ~HttpResponse() override = default;
     };
 
     /**
@@ -104,5 +111,8 @@ namespace zia::api
         NetInfo info;
         HttpRequest req;
         HttpResponse resp;
+
+        HttpDuplex() = default;
+        virtual ~HttpDuplex() = default;
     };
 }
