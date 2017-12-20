@@ -16,7 +16,12 @@ namespace zia::api
     */
     struct ConfValue
     {
-        std::variant<ConfObject, ConfArray, std::string, long long, double, bool> v;
+        using Parameter = std::variant<ConfObject, ConfArray, std::string, long long, double, bool>;
+
+        Parameter value;
+
+        explicit ConfValue(const Parameter &param) : value{param} {}
+        virtual ~ConfValue() = default;
     };
 
     /**
