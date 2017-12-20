@@ -6,6 +6,7 @@
 #include <functional>
 #include <string>
 #include <vector>
+#include <memory>
 
 namespace zia::api
 {
@@ -34,7 +35,7 @@ namespace zia::api
         NetIp ip;
         std::uint16_t port;
 
-        ImplSocket *sock;
+        std::shared_ptr<ImplSocket> sock;
 
         NetInfo() : time{}, start{}, ip{}, port{}, sock{} {}
         virtual ~NetInfo() = default;
@@ -71,7 +72,7 @@ namespace zia::api
         * Send a response.
         * \return true on success, otherwise false
         */
-        virtual bool send(ImplSocket *sock, Raw resp) = 0;
+        virtual bool send(std::shared_ptr<ImplSocket> sock, Raw resp) = 0;
 
         /**
         * Stop the server.
