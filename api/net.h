@@ -35,6 +35,9 @@ namespace zia::api
         std::uint16_t port;
 
         ImplSocket *sock;
+
+        NetInfo() : time{}, start{}, ip{}, port{}, sock{} {}
+        virtual ~NetInfo() = default;
     };
 
     /**
@@ -53,6 +56,8 @@ namespace zia::api
         * Type of callback called on request.
         */
         using Callback = std::function<void(Raw, NetInfo)>;
+
+        Net() = default;
 
         virtual ~Net() = default;
 
